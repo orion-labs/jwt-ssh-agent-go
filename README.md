@@ -6,6 +6,16 @@ Create and JWT Tokens with private keys from a running ssh-agent.  Parse and val
 
 ## Description
 
+With this library, or the techniques demonstrated herein you can create a perfectly valid JWT signed by a private key held by your local `ssh-agent`.
+
+This use case presupposes that the remote server has access to a trusted list of Subjects and SSH Public keys.  We have thoughtfully included an example HTTP server that is designed to take a callback that will produce a public key for a given subject.
+
+The callback could fetch public keys from a local file, a directory server, or anything you can conceive of in a similar fashion to the AuthorizedKeysCommand from [man(5) sshd_config](https://man.openbsd.org/sshd_config#AuthorizedKeysCommand).
+
+Passwordless auth from CLI utilities to a JWT protected web server or service is definitely not a common use case for JWT, but it can be occasionally just what the doctor orders.
+
+## Background
+
 The JWT spec provides for token signing via both symmetric and asymmetric cryptography. One very common usage of asymmetric crypto lies in the familiar SSH public and private keys.
 
 In order to avoid the twin evils of unencrypted keys and constantly typing in one's passphrase, the venerable `ssh-agent` can be used to hold the SSH private key in escrow and sign messages with it when asked nicely.
@@ -14,13 +24,7 @@ The JWT spec and `ssh-agent` have a single hashing algorithm in common.  JWT cal
 
 While the hashing algorithms are compatible, the normal use cases for each system are slightly different and therefore required some extra work to connect the two.  
 
-The general design of JWT libraries expect the unencrypted private key to be available for signing.  Keys held by the agent are off limits until now.  With this library, or the techniques demonstrated herein you can create a perfectly valid JWT signed by a private key held by your local `ssh-agent`.
-
-This use case presupposes that the remote server has access to a trusted list of Subjects and Public keys.  The library is designed to take a callback that will produce a public key for a given subject.
-
-The callback could fetch public keys from a local file, a directory server, or anything you can conceive of in a similar fashion to the AuthorizedKeysCommand from [man(5) sshd_config](https://man.openbsd.org/sshd_config#AuthorizedKeysCommand).
-
-Passwordless auth from CLI utilities to a JWT protected web server or service is definitely not a common use case for JWT, but it can be occasionally just what the doctor orders.
+The general design of JWT libraries expect the unencrypted private key to be available for signing.  Keys held by the agent are off limits until now.  
 
 ## Usage
 

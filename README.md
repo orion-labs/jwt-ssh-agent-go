@@ -8,11 +8,15 @@ Create and JWT Tokens with private keys from a running ssh-agent.  Parse and val
 
 With this library, or the techniques demonstrated herein you can create a perfectly valid JWT signed by a private key held by your local `ssh-agent`.
 
+Why would you even want to do such a thing?  Well, gentle reader, normally in JWT land the server creating tokens has access to Private Keys, which are powerful things that need to be carefully protected.
+
+In the case of SSH keys however, the model is inverted - each client has their own private key.  The server only agrees to trust a public key as identifying a particular user. Public keys are, well, public.  You don't have to protect them.  They're easily passed around in emails, text messages, etc.  This is how SSH authentication works all across the world since 2006, and it's probably how you're currently connecting to your cloud resources right now.  Why not give your tools that same super power?
+
 This use case presupposes that the remote server has access to a trusted list of Subjects and SSH Public keys.  We have thoughtfully included an example HTTP server that is designed to take a callback that will produce a public key for a given subject.
 
 The callback could fetch public keys from a local file, a directory server, or anything you can conceive of in a similar fashion to the AuthorizedKeysCommand from [man(5) sshd_config](https://man.openbsd.org/sshd_config#AuthorizedKeysCommand).
 
-Passwordless auth from CLI utilities to a JWT protected web server or service is definitely not a common use case for JWT, but it can be occasionally just what the doctor orders.
+Password-less authentication from CLI utilities to a JWT protected web service is definitely not a common use case for JWT, but it can be occasionally just what the doctor orders.
 
 ## Background
 

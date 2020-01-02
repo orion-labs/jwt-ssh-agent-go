@@ -1,7 +1,5 @@
 # jwt-ssh-agent-go
 
-[![CircleCI](https://circleci.com/gh/OnBeep/jwt-ssh-agent-go.svg?style=svg)](https://circleci.com/gh/OnBeep/jwt-ssh-agent-go)
-
 Create and JWT Tokens with private keys from a running ssh-agent.  Parse and validate them with SSH public keys.
 
 ## Description

@@ -58,7 +58,6 @@ func setUp() {
 	repo := TestServer{
 		Address:    "127.0.0.1",
 		Port:       port,
-		ServerRoot: tmpDir,
 		PubkeyFunc: pubkeyForUsername,
 	}
 
@@ -258,6 +257,8 @@ func TestPubkeyAuth(t *testing.T) {
 			address := "http://127.0.0.1"
 			path := ""
 			url := fmt.Sprintf("%s:%d/%s", address, port, path)
+
+			fmt.Printf("Testing %s\n", tc.name)
 
 			req, err := http.NewRequest("GET", url, nil)
 			if err != nil {

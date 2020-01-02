@@ -8,7 +8,6 @@ import (
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/pkg/errors"
-	log "github.com/sirupsen/logrus"
 	"golang.org/x/crypto/ssh"
 	"golang.org/x/crypto/ssh/agent"
 	"math/big"
@@ -114,7 +113,6 @@ func ParsePubkeySignedToken(tokenString string, pubkeyFunc func(subject string) 
 	// Make a token object, part of which is acquiring the appropriate public key with which to verify said token.
 	token, err = jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
 		subject = token.Claims.(jwt.MapClaims)["sub"].(string)
-		log.Infof("Subject %s attempting to authenticate", subject)
 
 		// Verify that we've been sent the right kind of token in the first place
 		if _, ok := token.Method.(*SigningMethodRSAAgent); !ok {
@@ -230,8 +228,6 @@ func SignedJwtToken(subject string, pubkey string) (token string, err error) {
 		Subject:   subject,
 		Issuer:    subject, // Subject and issuer match, cos that's how this ssh-agent pubkey auth stuff works - you auth yourself.  It's up to the server to decide if it trusts you.
 	}
-
-	log.Infof("Issued: %d Expires: %d", now.Unix(), expiration.Unix())
 
 	// set up the JWT Token
 	SigningMethodRS256Agent := &SigningMethodRSAAgent{"RS256", crypto.SHA256}

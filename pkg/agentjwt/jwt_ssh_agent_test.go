@@ -63,7 +63,7 @@ func setUp() {
 	}
 
 	// Run it in the background
-	go repo.RunRepoServer()
+	go repo.RunTestServer()
 }
 
 func tearDown() {

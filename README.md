@@ -6,7 +6,7 @@
 
 [![Coverage Status](https://codecov.io/gh/orion-labs/jwt-ssh-agent-go/branch/master/graph/badge.svg)](https://codecov.io/gh/orion-labs/jwt-ssh-agent-go)
 
-[![Go Doc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](http://godoc.org/github.com/orion-labs/jwt-ssh-agent-to/pkg/agentjwt)
+[![Go Doc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](http://godoc.org/github.com/orion-labs/jwt-ssh-agent-go/pkg/agentjwt)
 
 Create and JWT Tokens with private keys from a running ssh-agent.  Parse and validate them with SSH public keys.
 

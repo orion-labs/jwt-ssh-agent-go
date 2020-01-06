@@ -30,7 +30,7 @@ type TestServer struct {
 	PubkeyFunc func(username string) (pubkey string, err error)
 }
 
-// Run runs the test server.
+// RunTestServer runs the test server.
 func (d *TestServer) RunTestServer() (err error) {
 	log.Printf("Running test server on %s port %d.", d.Address, d.Port)
 

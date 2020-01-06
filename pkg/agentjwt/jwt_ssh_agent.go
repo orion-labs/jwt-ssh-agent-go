@@ -217,10 +217,10 @@ func ParsePubkeySignedToken(tokenString string, pubkeyFunc func(subject string) 
 		}
 
 		return subject, token, err
-	} else {
-		err = errors.New("Unparsable token claims")
-		return "", nil, err
 	}
+
+	err = errors.New("Unparsable token claims")
+	return "", nil, err
 }
 
 // SignedJwtToken takes a subject, and a public key string (as provided by ssh-agent or ssh-keygen) and creates a signed JWT Token by asking the ssh-agent politely to sign the token claims.  The token is good for MAX_TOKEN_DURATION seconds.

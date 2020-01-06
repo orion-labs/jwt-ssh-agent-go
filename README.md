@@ -2,6 +2,12 @@
 
 [![CircleCI](https://circleci.com/gh/orion-labs/jwt-ssh-agent-go.svg?style=svg)](https://circleci.com/gh/orion-labs/jwt-ssh-agent-go)
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/orion-labs/jwt-ssh-agent-go)](https://goreportcard.com/report/github.com/orion-labs/jwt-ssh-agent-go)
+
+[![Coverage Status](https://codecov.io/gh/orion-labs/jwt-ssh-agent-go/branch/master/graph/badge.svg)](https://codecov.io/gh/orion-labs/jwt-ssh-agent-go)
+
+[![Go Doc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](http://godoc.org/github.com/orion-labs/jwt-ssh-agent-to/pkg/agentjwt)
+
 Create and JWT Tokens with private keys from a running ssh-agent.  Parse and validate them with SSH public keys.
 
 ## Description

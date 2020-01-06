@@ -23,6 +23,7 @@ import (
 	"strconv"
 )
 
+// TestServer an HTTP server demostrating JWT RSA Auth
 type TestServer struct {
 	Address    string
 	Port       int
@@ -42,6 +43,7 @@ func (d *TestServer) RunTestServer() (err error) {
 	return err
 }
 
+// RootHandler  The main HTTP handler for TestServer
 func (d *TestServer) RootHandler(w http.ResponseWriter, r *http.Request) {
 	tokenString := r.Header.Get("Token")
 
@@ -58,5 +60,5 @@ func (d *TestServer) RootHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusUnauthorized)
 	}
 
-	log.Printf("Subject %s successfuly authenticated", subject)
+	log.Printf("Subject %s successfully authenticated", subject)
 }

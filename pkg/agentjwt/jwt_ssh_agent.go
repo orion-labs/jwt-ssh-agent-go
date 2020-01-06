@@ -138,6 +138,10 @@ func ParsePubkeySignedToken(tokenString string, pubkeyFunc func(subject string) 
 		}
 
 		pubkey, err := pubkeyFunc(subject)
+		if err != nil {
+			err = errors.Wrapf(err, "failed to produce public key for %s", subject)
+			return nil, err
+		}
 
 		// need to convert from ssh.PublicKey to rsa.PublicKey  This is a mess.
 		sshPubKey, _, _, _, err := ssh.ParseAuthorizedKey([]byte(pubkey))

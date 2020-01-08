@@ -1,5 +1,7 @@
 # jwt-ssh-agent-go
 
+[![Current Release](https://img.shields.io/github/release/orion-labs/jwt-ssh-agent-go.svg)](https://img.shields.io/github/release/orion-labs/jwt-ssh-agent-go.svg)
+
 [![CircleCI](https://circleci.com/gh/orion-labs/jwt-ssh-agent-go.svg?style=svg)](https://circleci.com/gh/orion-labs/jwt-ssh-agent-go)
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/orion-labs/jwt-ssh-agent-go)](https://goreportcard.com/report/github.com/orion-labs/jwt-ssh-agent-go)
